@@ -1,0 +1,1 @@
+A35LIB_atc_registerPlane = compile preprocessFileLineNumbers (A35LIB_PATH+"atc\functions\fn_registerPlane.sqf");
