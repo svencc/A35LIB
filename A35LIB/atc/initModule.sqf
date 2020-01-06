@@ -2,6 +2,7 @@
 // ATC Module
 // ----------------------------------------------------------------------------
 A35LIB_ATC_ENTITY = ["atc"] call A35LIB_fnc_findModule;
+[A35LIB_ATC_ENTITY] call A35LIB_common_loadModuleConfig;
 
 
 
@@ -13,7 +14,8 @@ A35LIB_ATC_OFFICER = ["atc"] call A35LIB_fnc_findModule;
 _allMan = entities "CAManBase";
 _atcOfficers = [_allMan, {!isNil{_x getVariable "A35LIB_atc_officer"}}] call BIS_fnc_conditionalSelect; //@TODO: REFACTOR: suchen und Filtern. Das brauche ich oft -> commons fn
 A35LIB_ATC_OFFICER = _atcOfficers select 0;
-// @TODO -> WAS passiert wenn das nicht definiert wurde???? Etwas überlegen und selber einen setzen.
+
+// @TODO -> WAS passiert wenn das nicht definiert wurde???? Etwas überlegen und selber einen setzen?.
 
 
 // ----------------------------------------------------------------------------

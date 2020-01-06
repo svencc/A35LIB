@@ -1,4 +1,4 @@
-params ["_callsign"];
+params ["_callsign", "_runway"];
 
 if (isNil{_callsign}) exitWith {
   ["1578256676: _callsign is empty"] call A35LIB_common_debug;
@@ -35,8 +35,8 @@ if (count _planeTemplates != 1) exitWith {
 };
 
 _planeTemplate = _planeTemplates select 0;
-_planeTemplate_taxi_speed = _planeTemplate getVariable ["A35LIB_atc_jet_taxi_speed", 5];
-_planeTemplate_taxi_offset = _planeTemplate getVariable ["A35LIB_atc_jet_taxi_offset", [0,0,0.6]];
+_planeTemplate_taxi_speed = _planeTemplate getVariable ["A35LIB_atc_jet_taxi_speed", CONF_A35LIB_ATC_TAXI_DEFAULT_SPEED];
+_planeTemplate_taxi_offset = _planeTemplate getVariable ["A35LIB_atc_jet_taxi_offset", CONF_A35LIB_ATC_TAXI_DEFAULT_OFFSET];
 
 
 
@@ -85,7 +85,7 @@ createVehicleCrew  _taxiInstance; // set a drev to vehicle, to enable ability to
   _taxiInstance setObjectTexture [_forEachIndex,""];   
 } forEach(getObjectTextures _taxiInstance);
 
-_planeInstance attachTo [_taxiInstance,_planeTemplate_taxi_offset]; // @TODO Offset configurable!
+_planeInstance attachTo [_taxiInstance,_planeTemplate_taxi_offset];
 _taxiInstance limitSpeed _planeTemplate_taxi_speed;
 _taxiInstance disableAI "AUTOCOMBAT";
 _taxiInstance disableAI "SUPPRESSION";
@@ -93,7 +93,6 @@ _taxiInstance disableAI "CHECKVISIBLE";
 _taxiInstance disableAI "COVER";
 _taxiInstance disableAI "LIGHTS";
 _taxiInstance disableAI "AUTOTARGET";
-hint str A35LIB_ATC_OFFICER;
 A35LIB_ATC_OFFICER action ["lightOff", _taxiInstance];
 
 
@@ -111,27 +110,17 @@ _planeInstance setVariable ["A35LIB_atc_currentTaxi_template", _taxiTemplate];
 // SPAWN PILOT
 // ----------------------------------------------------------------------------
 
-
-
-// @TODO Find marker NEXT to plane!
-// @TODO _nextPilotSpawnMaker has to be max 10! BIS_fnc_sortBy only support max 10 entries!!! So check before!!!!
-
+// @LIMITATION _nextPilotSpawnMaker has to be max 10!
 _pilotSpawnMakers = ["A35LIB_atc_pilotSpawnMarkers",[], A35LIB_ATC_ENTITY] call A35LIB_common_getVariable;
-if (count _pilotSpawnMakers > 10) exitWith {
-  ["1578306604: A35LIB_atc_pilotsSpawnMarker max 10 entries! Found: "+str(count _pilotSpawnMakers)] call A35LIB_common_debug;
-  false;
-};
-
 if (count _pilotSpawnMakers < 1) exitWith {
   ["1578306604: A35LIB_atc_pilotsSpawnMarker min 1 entrie! Found: "+str(count _pilotSpawnMakers)] call A35LIB_common_debug;
   false;
 };
-
 _nextPilotSpawnMaker = ([_pilotSpawnMakers, [_planeTemplate], {(getMarkerPos _x ) distance2D _input0 }, "ASCEND"] call BIS_fnc_sortBy) select 0;
 
 
 
-// Spawn pilot and let mount him the the plane
+// Spawn pilot and let him mount the the plane
 _grp = createGroup independent; // @TODO make SIDE configurable
 _newPilot = _grp createUnit [typeof (driver _planeTemplate), getMarkerPos _nextPilotSpawnMaker, [_nextPilotSpawnMaker],0,"NONE"];
 
@@ -143,7 +132,6 @@ _newPilot assignAsDriver _planeInstance;
 // ----------------------------------------------------------------------------
 // PILOT MOUNT PLANE EVENTHANDLER
 // ----------------------------------------------------------------------------
-
 _planeInstance addEventHandler ["GetIn", {
 	params ["_plane", "_role", "_unit", "_turret"];
   [_plane, _role, _unit, _turret] spawn getInHandlerScheduled;
@@ -151,22 +139,19 @@ _planeInstance addEventHandler ["GetIn", {
 
 
 getInHandlerScheduled = {
-  	params ["_plane", "_role", "_unit", "_turret"];
+  params ["_plane", "_role", "_unit", "_turret"];
   
-  // @TODO - REFACTOR
-  // @TODO - Check Variables!!!!
   _taxiInstance = _plane getVariable "A35LIB_atc_currentTaxi";
   _taxiTemplate = _plane getVariable "A35LIB_atc_currentTaxi_template";
 
-  // Spinning Engines Up
-  sleep 10;   // @Todo: Configurable Time Range
+  // Spinning Engines Up forNr of seconds
+  sleep CONF_A35LIB_ATC_ENGINE_SPINUP_DEFAULT_TIME;
 
-
-  // @TODO: REFACTOR
   // Taxi start follow path
   _taxiInstance setDriveOnPath ((waypoints (group driver _taxiTemplate)) apply {
     waypointPosition _x;
   });
+
   { _x setWaypointCompletionRadius 1;
   } forEach (waypoints (group driver _taxiInstance));
 };
@@ -185,7 +170,7 @@ getInHandlerScheduled = {
 // Dann müssen die Flieger auch wieder reinkommen und TAXI-IN machen
 
 // WICHTIGES THEMA - AUFRÄUMEN? Umgang mit kaputten Flugzeugen?
-// Registry service aufräumen
+
 
 
 

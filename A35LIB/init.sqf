@@ -3,7 +3,7 @@
 // ----------------------------------------------------------------------------
 
 call compile preprocessFileLineNumbers (A35LIB_PATH+"config.sqf");
-call compile preprocessFileLineNumbers (A35LIB_PATH+"local_config.sqf");
+call compile preprocessFileLineNumbers (A35LIB_PATH+"config_user.sqf");
 
 A35LIB_fnc_findLib = {
 	_allLogics = entities "Logic";
@@ -48,16 +48,15 @@ A35LIB_fnc_resetData = {
 
 
 
-
-
 // CONSTANTS
 A35LIB_PATH;
 A35LIB_DEBUG = CONF_A35LIB_DEBUG;
 A35LIB_ENTITY = call A35LIB_fnc_findLib;
 A35LIB_MODULES = call A35LIB_fnc_findModules;
 
+
+
 // RESET DATA
 call A35LIB_fnc_resetData;
-
 // COMPILE A35LIB
 call A35LIB_fnc_compile;
