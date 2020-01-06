@@ -11,7 +11,7 @@ if (isNil{_callsign}) exitWith {
 // ----------------------------------------------------------------------------
 
 // Find all registed taxis
-_registeredTaxis = ["atc_registered_taxis_out", []] call A35LIB_common_getVariable;
+_registeredTaxis = ["atc_registered_taxis_out", [], A35LIB_ATC_ENTITY] call A35LIB_common_getVariable;
 // Find taxi with given callsign
 _taxis = [_registeredTaxis, {(_x getVariable "atc_callsign") == _callsign;}] call BIS_fnc_conditionalSelect;
 
@@ -25,7 +25,7 @@ _taxiTemplate = _taxis select 0;
 
 
 // Find all registed planes
-_registeredPlanes = ["atc_registeredPlanes", []] call A35LIB_common_getVariable;
+_registeredPlanes = ["atc_registeredPlanes", [], A35LIB_ATC_ENTITY] call A35LIB_common_getVariable;
 // Find taxi with given callsign
 _planeTemplates = [_registeredPlanes, {(_x getVariable "atc_callsign") == _callsign;}] call BIS_fnc_conditionalSelect;
 
@@ -83,7 +83,7 @@ createVehicleCrew  _taxiInstance; // set a drev to vehicle, to enable ability to
 // Downside to this approach; The shadow is still visible; But I don´t know any other possibility!!!
 {
   _taxiInstance setObjectTexture [_forEachIndex,""];   
-} forEach(getObjectTextures _taxiInstance); 
+} forEach(getObjectTextures _taxiInstance);
 
 _planeInstance attachTo [_taxiInstance,_planeTemplate_taxi_offset]; // @TODO Offset configurable!
 _taxiInstance limitSpeed _planeTemplate_taxi_speed;

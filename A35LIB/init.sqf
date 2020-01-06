@@ -1,6 +1,10 @@
 // ----------------------------------------------------------------------------
 // BOOTSTRAP HELPER
 // ----------------------------------------------------------------------------
+
+call compile preprocessFileLineNumbers (A35LIB_PATH+"config.sqf");
+call compile preprocessFileLineNumbers (A35LIB_PATH+"local_config.sqf");
+
 A35LIB_fnc_findLib = {
 	_allLogics = entities "Logic";
 	_A35LIB = [_allLogics, {!isNil{_x getVariable "A35LIB"}}] call BIS_fnc_conditionalSelect;
@@ -25,6 +29,10 @@ A35LIB_fnc_findModule = {
 };
 
 A35LIB_fnc_compile = {
+	// COMPILE COMMON LIB ALWAYS FIRST
+	call compile preprocessFileLineNumbers (A35LIB_PATH+"common\registerFunctions.sqf");
+	call compile preprocessFileLineNumbers (A35LIB_PATH+"common\initModule.sqf");
+
 	// REGISTER MODULE FUNCTIONS
 	{ call compile preprocessFileLineNumbers (A35LIB_PATH+(str _x)+"\registerFunctions.sqf");
 	} forEach (A35LIB_MODULES);
@@ -34,7 +42,7 @@ A35LIB_fnc_compile = {
 };
 
 A35LIB_fnc_resetData = {
-	{A35LIB_ENTITY setVariable [str _x, nil]} forEach (allVariables A35LIB_ENTITY);
+	{A35LIB_ENTITY setVariable [_x, nil]} forEach (allVariables A35LIB_ENTITY);
 };
 // ----------------------------------------------------------------------------
 
@@ -43,19 +51,13 @@ A35LIB_fnc_resetData = {
 
 
 // CONSTANTS
-A35LIB_DEBUG = true; // @TODO: Put this into config!
-A35LIB_PATH; // Is set outside of A35LIB on mission/server level (init.sqf or serverInit.sqf)
+A35LIB_PATH;
+A35LIB_DEBUG = CONF_A35LIB_DEBUG;
 A35LIB_ENTITY = call A35LIB_fnc_findLib;
 A35LIB_MODULES = call A35LIB_fnc_findModules;
 
 // RESET DATA
-//call A35LIB_fnc_resetData;
+call A35LIB_fnc_resetData;
 
 // COMPILE A35LIB
 call A35LIB_fnc_compile;
-
-
-
-
-// @TODO: just add common module here in script, so you dont need to setup in editor!
-// @TODO: Add config system

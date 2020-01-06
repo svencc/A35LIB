@@ -1,0 +1,2 @@
+
+CONF_A35LIB_DEBUG = true;

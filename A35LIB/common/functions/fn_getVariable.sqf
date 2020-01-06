@@ -8,7 +8,7 @@ if (!isNil "_useModule") then {
 
 if (isNil {_module getVariable _key} and (!isNil "_default")
 ) exitWith {
-  [_key, _default] call A35LIB_common_setVariable;
+  [_key, _default, _useModule] call A35LIB_common_setVariable;
   _default;
 };
 
