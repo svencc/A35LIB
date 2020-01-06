@@ -5,7 +5,7 @@ class EditorData
 	angleGridStep=1.5707964;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1194;
+	toggles=1066;
 	class ItemIDProvider
 	{
 		nextID=428;
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={14251.666,79.719734,16221.695};
-		dir[]={-0.7079531,-0.62450337,0.32988188};
-		up[]={-0.56606901,0.7810201,0.26376793};
-		aside[]={0.42236608,-9.5693395e-008,0.90643418};
+		pos[]={14278.328,36.518288,16256.521};
+		dir[]={-0.73751336,-0.45491016,-0.4991703};
+		up[]={-0.37673822,0.89053404,-0.25498787};
+		aside[]={-0.56052238,1.7823186e-007,0.82815623};
 	};
 };
 binarizationWanted=0;
@@ -20030,7 +20030,7 @@ class Mission
 									flags=6;
 									class Attributes
 									{
-										init="call{this setVariable [""A35LIB_atc_jet"",""Erebos""];" \n "this setVariable [""A35LIB_atc_jet_taxi_offset"",[0,0,0.6]];" \n "this setVariable [""A35LIB_atc_jet_taxi_speed"",7];" \n "}";
+										init="call{this setVariable [""A35LIB_atc_jet"",""Erebos""];" \n "this setVariable [""A35LIB_atc_jet_taxi_offset"",[0,0,0.6]];" \n "this setVariable [""A35LIB_atc_jet_taxi_speed"",20];" \n "}";
 										name="Erebos";
 										disableSimulation=1;
 										pylons="PylonRack_1Rnd_Missile_AA_04_F;PylonRack_7Rnd_Rocket_04_HE_F;PylonMissile_1Rnd_BombCluster_03_F;PylonWeapon_300Rnd_20mm_shells;PylonMissile_1Rnd_BombCluster_03_F;PylonRack_7Rnd_Rocket_04_HE_F;PylonRack_1Rnd_Missile_AA_04_F;";
@@ -24730,7 +24730,7 @@ class Mission
 											{
 												name="LaunchZone_L";
 												condition="call{this}";
-												onActivation="call{[""airbase_l"",""One"",thisTrigger] spawn A35LIB_atc_prepareTakeoff}";
+												onActivation="call{[""01"",""Zero One"",thisTrigger] spawn A35LIB_atc_prepareTakeoff}";
 												sizeA=14.287;
 												sizeB=27.916;
 												repeatable=1;
@@ -24750,7 +24750,7 @@ class Mission
 											{
 												name="LaunchZone_R";
 												condition="call{this}";
-												onActivation="call{[""airbase_r"",""Two"",thisTrigger] spawn A35LIB_atc_prepareTakeoff}";
+												onActivation="call{[""02"",""Zero Two"",thisTrigger] spawn A35LIB_atc_prepareTakeoff}";
 												sizeA=17.43;
 												sizeB=27.916;
 												repeatable=1;

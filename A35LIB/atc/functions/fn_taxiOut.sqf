@@ -58,7 +58,8 @@ _planeInstance = createVehicle [typeOf _planeTemplate,position _planeTemplate,[]
 
 _planeInstance setDir (getDir _planeTemplate);
 
-// Set Dynamic Loadout
+// @TODO: Die Loadouts müssen auch Konfigurierbar sein!!!!
+// Set Dynamic Loadout 
 private _pylons = ["PylonRack_1Rnd_Missile_AA_04_F","PylonRack_7Rnd_Rocket_04_HE_F","PylonMissile_1Rnd_BombCluster_03_F","PylonWeapon_300Rnd_20mm_shells","PylonMissile_1Rnd_BombCluster_03_F","PylonRack_7Rnd_Rocket_04_HE_F","PylonRack_1Rnd_Missile_AA_04_F"];
 private _pylonPaths = (configProperties [configFile >> "CfgVehicles" >> typeOf _planeInstance >> "Components" >> "TransportPylonsComponent" >> "Pylons", "isClass _x"]) apply {getArray (_x >> "turret")};
 { _planeInstance removeWeaponGlobal getText (configFile >> "CfgMagazines" >> _x >> "pylonWeapon") } forEach getPylonMagazines _planeInstance;
@@ -71,7 +72,6 @@ _planeTemplate enableSimulation false; // enableSimulationGlobal in MP!
 
 
 
-// Link instances into plane
 _taxiInstance = createVehicle [typeOf _taxiTemplate,position _planeTemplate,[],0,"CAN_COLLIDE"];
 [
 	_taxiInstance,
@@ -101,7 +101,7 @@ A35LIB_ATC_OFFICER action ["lightOff", _taxiInstance];
 
 
 
-// @TODO - REFACTOR
+// @TODO - REFACTOR -> setter and getter functions!
 // Connect every instance inside the plane!
 _planeInstance setVariable ["A35LIB_atc_plane_template", _planeTemplate];
 _planeInstance setVariable ["A35LIB_atc_currentTaxi", _taxiInstance];

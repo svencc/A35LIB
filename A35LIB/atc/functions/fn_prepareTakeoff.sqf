@@ -1,13 +1,25 @@
 params ["_runwayId","_callsign","_plane"];
 
-_plane;
-_taxi = _plane getVariable "";
-/*
-test enableSimulation false;
-p99 allowDamage false;
-p99  enableSimulation false;
-detach p99;
-test setVehiclePosition[[0,0,0],[],0,"NONE"];
-p99 enableSimulation true;
-p99 allowDamage true;
-*/
+if(!(_plane type "Plane")) exitWith {
+	nil;
+};
+
+_taxi = _plane getVariable "A35LIB_atc_currentTaxi"; // <<< fehler
+
+hint _taxi;
+
+sleep 10;
+_taxi enableSimulation false;
+_plane allowDamage false;
+_plane  enableSimulation false;
+
+detach _plane;
+
+_taxi setVehiclePosition[[0,0,0],[],0,"NONE"];
+deleteVehicle _taxi;
+
+hint "start";
+
+_plane enableSimulation true;
+_plane allowDamage true;
+
