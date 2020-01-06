@@ -1,4 +1,4 @@
-params ["_callsign", "_runway"];
+params ["_callsign"];
 
 if (isNil{_callsign}) exitWith {
   ["1578256676: _callsign is empty"] call A35LIB_common_debug;
