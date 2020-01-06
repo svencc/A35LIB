@@ -9,11 +9,6 @@ _planeCallsign = (_callsignTupel splitString "#") select 0;
 _taxiCallsign = _callsignTupel;
 
 
-// Idee: <_callsign>#L oder #R
-// Callsign bleibt immer callsign (so kann ich das flugzeug gleich zu missionsstart spawnen, aber der taxi nahme wird mit dem postfix gemacht
-// callsign jet  -> Erebos
-// callsign taxi -> Erebos#L Erebos#R Erebos#<whatever>
-
 
 // ----------------------------------------------------------------------------
 // PREPARE

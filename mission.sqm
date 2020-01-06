@@ -21207,7 +21207,7 @@ class Mission
 								};
 							};
 							id=413;
-							atlOffset=0.004486084;
+							atlOffset=0.01030159;
 						};
 						class Item1
 						{
@@ -24808,7 +24808,7 @@ class Mission
 						};
 					};
 					id=414;
-					atlOffset=-0.88703156;
+					atlOffset=-0.88736343;
 				};
 				class Item1
 				{
@@ -24839,7 +24839,7 @@ class Mission
 				};
 			};
 			id=421;
-			atlOffset=-0.3120842;
+			atlOffset=-0.32172012;
 		};
 	};
 	class Connections
