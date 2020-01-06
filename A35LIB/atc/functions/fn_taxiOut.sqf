@@ -1,9 +1,18 @@
-params ["_callsign"];
+params ["_callsignTupel"];
 
-if (isNil{_callsign}) exitWith {
+if (isNil{_callsignTupel}) exitWith {
   ["1578256676: _callsign is empty"] call A35LIB_common_debug;
   false;
 };
+
+_planeCallsign = (_callsignTupel splitString "#") select 0;
+_taxiCallsign = _callsignTupel;
+
+
+// Idee: <_callsign>#L oder #R
+// Callsign bleibt immer callsign (so kann ich das flugzeug gleich zu missionsstart spawnen, aber der taxi nahme wird mit dem postfix gemacht
+// callsign jet  -> Erebos
+// callsign taxi -> Erebos#L Erebos#R Erebos#<whatever>
 
 
 // ----------------------------------------------------------------------------
@@ -13,7 +22,7 @@ if (isNil{_callsign}) exitWith {
 // Find all registed taxis
 _registeredTaxis = ["atc_registered_taxis_out", [], A35LIB_ATC_ENTITY] call A35LIB_common_getVariable;
 // Find taxi with given callsign
-_taxis = [_registeredTaxis, {(_x getVariable "atc_callsign") == _callsign;}] call BIS_fnc_conditionalSelect;
+_taxis = [_registeredTaxis, {(_x getVariable "atc_callsign") == _taxiCallsign;}] call BIS_fnc_conditionalSelect;
 
 if (count _taxis != 1) exitWith {
   ["1578256721: taxis found ("+(str count _taxis)+")"] call A35LIB_common_debug;
@@ -27,7 +36,7 @@ _taxiTemplate = _taxis select 0;
 // Find all registed planes
 _registeredPlanes = ["atc_registeredPlanes", [], A35LIB_ATC_ENTITY] call A35LIB_common_getVariable;
 // Find taxi with given callsign
-_planeTemplates = [_registeredPlanes, {(_x getVariable "atc_callsign") == _callsign;}] call BIS_fnc_conditionalSelect;
+_planeTemplates = [_registeredPlanes, {(_x getVariable "atc_callsign") == _planeCallsign;}] call BIS_fnc_conditionalSelect;
 
 if (count _planeTemplates != 1) exitWith {
   ["1578257578: planes found ("+(str count _taxis)+")"] call A35LIB_common_debug;
