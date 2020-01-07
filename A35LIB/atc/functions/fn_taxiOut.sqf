@@ -160,6 +160,12 @@ getInHandlerScheduled = {
 };
 
 
+// <<<<<<<<<<<<<<<
+// @TODO Hier müssen wir das prepareTakeoffPlane script als Activation Handler des vorletzten Waypoints setzen!!!!!!!!!!!!!
+// <<<<<<<<<<<<<<<
+
+
+
 // Dann brauchen wir noch diverse Routen die das Flugzeug dann einnimmt.
 
 
