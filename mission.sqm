@@ -5,21 +5,21 @@ class EditorData
 	angleGridStep=1.5707964;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1066;
+	toggles=1034;
 	class ItemIDProvider
 	{
-		nextID=428;
+		nextID=437;
 	};
 	class LayerIndexProvider
 	{
-		nextID=15;
+		nextID=41;
 	};
 	class Camera
 	{
-		pos[]={14278.328,36.518288,16256.521};
-		dir[]={-0.73751336,-0.45491016,-0.4991703};
-		up[]={-0.37673822,0.89053404,-0.25498787};
-		aside[]={-0.56052238,1.7823186e-007,0.82815623};
+		pos[]={14331.754,89.375893,16013.862};
+		dir[]={-0.71485966,-0.29953179,-0.6320563};
+		up[]={-0.22447033,0.95407027,-0.19847156};
+		aside[]={-0.66245234,-2.4873298e-006,0.74924719};
 	};
 };
 binarizationWanted=0;
@@ -2901,7 +2901,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14279.716,20.881912,16111.553};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							flags=4;
@@ -3419,7 +3419,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14284.767,20.896458,16118.434};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							flags=4;
@@ -3677,7 +3677,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14289.56,20.733582,16125.042};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							flags=4;
@@ -3935,7 +3935,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14294.565,20.837749,16131.902};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							flags=4;
@@ -4194,7 +4194,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14299.583,20.971272,16138.756};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							flags=4;
@@ -4452,7 +4452,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14304.615,21.103798,16145.488};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							flags=4;
@@ -6261,7 +6261,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14237.063,22.319038,16143.118};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							flags=4;
@@ -6519,7 +6519,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14242.114,22.171547,16149.999};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							flags=4;
@@ -6777,7 +6777,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14256.931,21.907852,16170.321};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							flags=4;
@@ -7035,7 +7035,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14261.963,21.88546,16177.054};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							flags=4;
@@ -7560,7 +7560,7 @@ class Mission
 							};
 							id=329;
 							type="Land_HBarrier_Big_F";
-							atlOffset=2.1792374;
+							atlOffset=2.1792469;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -8583,7 +8583,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14279.655,23.057194,16111.628};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							class Attributes
@@ -9099,7 +9099,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14284.706,23.071739,16118.509};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							class Attributes
@@ -9357,7 +9357,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14289.499,22.908863,16125.117};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							class Attributes
@@ -9615,7 +9615,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14294.505,23.013031,16131.978};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							class Attributes
@@ -9873,7 +9873,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14299.522,23.146553,16138.831};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							class Attributes
@@ -10131,7 +10131,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14304.555,23.279079,16145.563};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							class Attributes
@@ -11679,7 +11679,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14237.213,24.49432,16143.029};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							class Attributes
@@ -11937,7 +11937,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14242.264,24.346828,16149.91};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							class Attributes
@@ -12195,7 +12195,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14257.08,24.083134,16170.232};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							class Attributes
@@ -12453,7 +12453,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14262.112,24.060741,16176.965};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							class Attributes
@@ -17125,7 +17125,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14304.611,24.908499,16145.517};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							class Attributes
@@ -17383,7 +17383,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14299.685,24.609303,16138.764};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							class Attributes
@@ -17641,7 +17641,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14294.845,24.646467,16131.966};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							class Attributes
@@ -17899,7 +17899,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14289.876,24.629858,16125.274};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							class Attributes
@@ -18157,7 +18157,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14284.754,24.807508,16118.449};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							class Attributes
@@ -18415,7 +18415,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14279.647,24.910103,16111.586};
-								angles[]={0,5.3756142,-0};
+								angles[]={0,5.3756142,0};
 							};
 							side="Empty";
 							class Attributes
@@ -23280,7 +23280,7 @@ class Mission
 													showWP="NEVER";
 													id=176;
 													type="Move";
-													atlOffset=-1.5258789e-005;
+													atlOffset=-2.0980835e-005;
 												};
 												class Item24
 												{
@@ -24730,7 +24730,7 @@ class Mission
 											{
 												name="LaunchZone_L";
 												condition="call{this}";
-												onActivation="call{[""01"",""Zero One"",thisTrigger] spawn A35LIB_atc_prepareTakeoff}";
+												onActivation="call{[""01"",""Zero One"",thisList] spawn A35LIB_atc_prepareTakeoff}";
 												sizeA=14.287;
 												sizeB=27.916;
 												repeatable=1;
@@ -24750,7 +24750,7 @@ class Mission
 											{
 												name="LaunchZone_R";
 												condition="call{this}";
-												onActivation="call{[""02"",""Zero Two"",thisTrigger] spawn A35LIB_atc_prepareTakeoff}";
+												onActivation="call{[""02"",""Zero Two"",thisList] spawn A35LIB_atc_prepareTakeoff}";
 												sizeA=17.43;
 												sizeB=27.916;
 												repeatable=1;
@@ -24815,31 +24815,32 @@ class Mission
 					dataType="Logic";
 					class PositionInfo
 					{
-						position[]={14210.77,19.532003,16275.666};
+						position[]={14200.88,19.49707,16300.444};
 						angles[]={0.012007865,0,0};
 					};
 					name="A35lib";
 					init="call{this setVariable [""A35LIB"",this];}";
 					id=99;
 					type="Logic";
+					atlOffset=0.17474174;
 				};
 				class Item2
 				{
 					dataType="Logic";
 					class PositionInfo
 					{
-						position[]={14189.828,19.575447,16275.82};
+						position[]={14191.995,19.584473,16292.296};
 						angles[]={0.0066671576,0,6.2778621};
 					};
 					name="atc";
 					init="call{this setVariable [""A35LIB_module"",""atc""];" \n "[""A35LIB_atc_atcOfficer"",atcOfficer];" \n "this setVariable" \n "[""A35LIB_atc_pilotSpawnMarkers"",[""pilotSpawnCAS"",""pilotSpawnAA""]];" \n "}";
 					id=9;
 					type="Logic";
-					atlOffset=1.9073486e-006;
+					atlOffset=0.25346947;
 				};
 			};
 			id=421;
-			atlOffset=-0.32172012;
+			atlOffset=-0.086830139;
 		};
 	};
 	class Connections

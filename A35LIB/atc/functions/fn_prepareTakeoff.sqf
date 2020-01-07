@@ -1,25 +1,30 @@
-params ["_runwayId","_callsign","_plane"];
+params ["_runwayId","_callsign","_objectsInTrigger"];
 
-if(!(_plane type "Plane")) exitWith {
-	nil;
-};
+// @INFO: SUPPORT Helos -> filter by type "Helicopter" or parent "Air"
+// @TODO -> add state of AIR unit (taxi-out; taxi-in; in-air; patrol; show-force; attack-run; ...)
 
-_taxi = _plane getVariable "A35LIB_atc_currentTaxi"; // <<< fehler
+{
+	if ( (_x isKindOf "Plane") and (!isNil {_x getVariable "A35LIB_atc_planeInstanceFrom"}) ) then {
+		hint "prepare";
+		_taxi = _x getVariable "A35LIB_atc_currentTaxi";
 
-hint _taxi;
+		// @TODO vielleicht hier den atc informieren, so das er steuert wann es los geht!
+		// @TODO REFACTOR to new function, which gets called by ATC
+		sleep 30;
 
-sleep 10;
-_taxi enableSimulation false;
-_plane allowDamage false;
-_plane  enableSimulation false;
+		_taxi enableSimulation false;
 
-detach _plane;
+		_x allowDamage false;
+		_x enableSimulation false;
 
-_taxi setVehiclePosition[[0,0,0],[],0,"NONE"];
-deleteVehicle _taxi;
+		detach _x;
 
-hint "start";
+		_taxi setVehiclePosition[[0,0,0],[],0,"NONE"];
+		deleteVehicle _taxi;
 
-_plane enableSimulation true;
-_plane allowDamage true;
+		hint "start";
 
+		_x enableSimulation true;
+		_x allowDamage true;
+	};
+} forEach (_objectsInTrigger);

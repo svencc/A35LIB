@@ -15,9 +15,9 @@ _taxiCallsign = _callsignTupel;
 // ----------------------------------------------------------------------------
 
 // Find all registed taxis
-_registeredTaxis = ["atc_registered_taxis_out", [], A35LIB_ATC_ENTITY] call A35LIB_common_getVariable;
+_registeredTaxis = ["A35LIB_atc_registered_taxis_out", [], A35LIB_ATC_ENTITY] call A35LIB_common_getVariable;
 // Find taxi with given callsign
-_taxis = [_registeredTaxis, {(_x getVariable "atc_callsign") == _taxiCallsign;}] call BIS_fnc_conditionalSelect;
+_taxis = [_registeredTaxis, {(_x getVariable "A35LIB_atc_callsign") == _taxiCallsign;}] call BIS_fnc_conditionalSelect;
 
 if (count _taxis != 1) exitWith {
   ["1578256721: taxis found ("+(str count _taxis)+")"] call A35LIB_common_debug;
@@ -29,9 +29,9 @@ _taxiTemplate = _taxis select 0;
 
 
 // Find all registed planes
-_registeredPlanes = ["atc_registeredPlanes", [], A35LIB_ATC_ENTITY] call A35LIB_common_getVariable;
+_registeredPlanes = ["A35LIB_atc_registeredPlanes", [], A35LIB_ATC_ENTITY] call A35LIB_common_getVariable;
 // Find taxi with given callsign
-_planeTemplates = [_registeredPlanes, {(_x getVariable "atc_callsign") == _planeCallsign;}] call BIS_fnc_conditionalSelect;
+_planeTemplates = [_registeredPlanes, {(_x getVariable "A35LIB_atc_callsign") == _planeCallsign;}] call BIS_fnc_conditionalSelect;
 
 if (count _planeTemplates != 1) exitWith {
   ["1578257578: planes found ("+(str count _taxis)+")"] call A35LIB_common_debug;
@@ -99,11 +99,9 @@ _taxiInstance disableAI "LIGHTS";
 _taxiInstance disableAI "AUTOTARGET";
 A35LIB_ATC_OFFICER action ["lightOff", _taxiInstance];
 
-
-
 // @TODO - REFACTOR -> setter and getter functions!
 // Connect every instance inside the plane!
-_planeInstance setVariable ["A35LIB_atc_plane_template", _planeTemplate];
+_planeInstance setVariable ["A35LIB_atc_planeInstanceFrom", _planeTemplate];
 _planeInstance setVariable ["A35LIB_atc_currentTaxi", _taxiInstance];
 _planeInstance setVariable ["A35LIB_atc_currentTaxi_template", _taxiTemplate];
 
@@ -133,6 +131,8 @@ _newPilot assignAsDriver _planeInstance;
 
 
 
+
+
 // ----------------------------------------------------------------------------
 // PILOT MOUNT PLANE EVENTHANDLER
 // ----------------------------------------------------------------------------
@@ -141,14 +141,13 @@ _planeInstance addEventHandler ["GetIn", {
   [_plane, _role, _unit, _turret] spawn getInHandlerScheduled;
 }];
 
-
 getInHandlerScheduled = {
   params ["_plane", "_role", "_unit", "_turret"];
   
   _taxiInstance = _plane getVariable "A35LIB_atc_currentTaxi";
   _taxiTemplate = _plane getVariable "A35LIB_atc_currentTaxi_template";
 
-  // Spinning Engines Up forNr of seconds
+  // Spinning Engines for nr of seconds
   sleep CONF_A35LIB_ATC_ENGINE_SPINUP_DEFAULT_TIME;
 
   // Taxi start follow path
@@ -161,11 +160,6 @@ getInHandlerScheduled = {
 };
 
 
-// Und dann kommt der Pilot BIS_fnc_getRespawnPositions
-// Und dann gehts Los auf die Runway
-// Dort gibts noch einen stopped
-// Dann start 
-
 // Dann brauchen wir noch diverse Routen die das Flugzeug dann einnimmt.
 
 
@@ -174,10 +168,3 @@ getInHandlerScheduled = {
 // Dann müssen die Flieger auch wieder reinkommen und TAXI-IN machen
 
 // WICHTIGES THEMA - AUFRÄUMEN? Umgang mit kaputten Flugzeugen?
-
-
-
-
-
-// Unterstütze 2 Runways?
-// Also 2 Out/In Routen
