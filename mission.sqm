@@ -8,18 +8,18 @@ class EditorData
 	toggles=2;
 	class ItemIDProvider
 	{
-		nextID=763;
+		nextID=777;
 	};
 	class LayerIndexProvider
 	{
-		nextID=61;
+		nextID=109;
 	};
 	class Camera
 	{
-		pos[]={14324.468,42.513985,15931.032};
-		dir[]={0.47288463,-0.64953691,-0.59559536};
-		up[]={0.40392822,0.76029497,-0.50874579};
-		aside[]={-0.78326309,-2.2117747e-006,-0.62188876};
+		pos[]={14242.545,32.652473,16255.865};
+		dir[]={0.12554407,-0.39408055,0.91049182};
+		up[]={0.053839542,0.91904044,0.39046687};
+		aside[]={0.99065459,-9.0192771e-007,-0.1365997};
 	};
 };
 binarizationWanted=0;
@@ -36,23 +36,24 @@ addons[]=
 	"A3_Drones_F_Soft_F_Gamma_UGV_01",
 	"A3_Characters_F_Common",
 	"A3_Ui_F",
-	"A3_Modules_F",
 	"A3_Soft_F_Beta_Truck_02",
 	"A3_Soft_F_Gamma_Truck_02",
 	"A3_Props_F_Jets_Military_Trolley",
 	"A3_Supplies_F_Exp_Ammoboxes",
 	"A3_Structures_F_Mil_Fortification",
 	"A3_Structures_F_Ind_DieselPowerPlant",
+	"A3_Modules_F",
 	"A3_Structures_F_Enoch_Decals_Horizontal",
 	"A3_Structures_F_Walls",
 	"A3_Structures_F_Mil_Bunker",
-	"A3_Structures_F_Enoch_Infrastructure_Roads"
+	"A3_Structures_F_Enoch_Infrastructure_Roads",
+	"A3_Props_F_Enoch_Military_Equipment"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=19;
+		items=20;
 		class Item0
 		{
 			className="A3_Modules_F_Curator";
@@ -118,50 +119,50 @@ class AddonsMetaData
 		};
 		class Item9
 		{
-			className="A3_Modules_F";
-			name="Arma 3 Alpha - Scripted Modules";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item10
-		{
 			className="A3_Soft_F_Beta";
 			name="Arma 3 Beta - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item11
+		class Item10
 		{
 			className="A3_Soft_F_Gamma";
 			name="Arma 3 - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item12
+		class Item11
 		{
 			className="A3_Props_F_Jets";
 			name="Arma 3 Jets - Decorative and Mission Objects";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item13
+		class Item12
 		{
 			className="A3_Supplies_F_Exp";
 			name="Arma 3 Apex - Ammoboxes and Supplies";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item14
+		class Item13
 		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item15
+		class Item14
 		{
 			className="A3_Structures_F_Ind";
 			name="Arma 3 - Industrial Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item15
+		{
+			className="A3_Modules_F";
+			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -183,6 +184,13 @@ class AddonsMetaData
 		{
 			className="A3_Structures_F_Enoch_Infrastructure";
 			name="Arma 3 Enoch - Infrastructure Objects";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item19
+		{
+			className="A3_Props_F_Enoch";
+			name="Arma 3 Enoch - Decorative and Mission Objects";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -239,7 +247,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=19;
+		items=22;
 		class Item0
 		{
 			dataType="Logic";
@@ -2510,7 +2518,7 @@ class Mission
 			name="A35";
 			class Entities
 			{
-				items=3;
+				items=1;
 				class Item0
 				{
 					dataType="Layer";
@@ -7602,37 +7610,9 @@ class Mission
 					id=414;
 					atlOffset=-0.88736343;
 				};
-				class Item1
-				{
-					dataType="Logic";
-					class PositionInfo
-					{
-						position[]={14200.88,19.49707,16300.444};
-						angles[]={0.012007865,0,0};
-					};
-					name="A35lib";
-					init="call{this setVariable [""A35LIB"",this];}";
-					id=99;
-					type="Logic";
-					atlOffset=0.17474174;
-				};
-				class Item2
-				{
-					dataType="Logic";
-					class PositionInfo
-					{
-						position[]={14191.995,19.584473,16292.296};
-						angles[]={0.0066671576,0,6.2778621};
-					};
-					name="atc";
-					init="call{this setVariable [""A35LIB_module"",""atc""];" \n "[""A35LIB_atc_atcOfficer"",atcOfficer];" \n "this setVariable" \n "[""A35LIB_atc_pilotSpawnMarkers"",[""pilotSpawnCAS"",""pilotSpawnAA""]];" \n "}";
-					id=9;
-					type="Logic";
-					atlOffset=0.25346947;
-				};
 			};
 			id=421;
-			atlOffset=-0.086830139;
+			atlOffset=-0.88736343;
 		};
 		class Item8
 		{
@@ -7656,6 +7636,7 @@ class Mission
 					};
 					id=616;
 					type="I_soldier_F";
+					atlOffset=-3.8146973e-006;
 				};
 			};
 			class Attributes
@@ -8193,7 +8174,7 @@ class Mission
 			};
 			id=627;
 			type="Box_NATO_Equip_F";
-			atlOffset=1.5214062;
+			atlOffset=1.52141;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -13320,7 +13301,7 @@ class Mission
 							};
 							id=652;
 							type="Land_HBarrier_Big_F";
-							atlOffset=1.9073486e-006;
+							atlOffset=-1.335144e-005;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -25723,13 +25704,13 @@ class Mission
 								angles[]={0.04146377,4.9233079,0.44592062};
 							};
 							side="Empty";
-							flags=4;
 							class Attributes
 							{
 								disableSimulation=1;
 							};
 							id=702;
 							type="Land_Razorwire_F";
+							atlOffset=2.0397282;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -27021,7 +27002,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={14110.582,22.500425,16073.984};
-								angles[]={-0,4.9233079,0};
+								angles[]={0,4.9233079,0};
 							};
 							areaSize[]={23.969,0,26.483999};
 							areaIsRectangle=1;
@@ -34129,7 +34110,7 @@ class Mission
 									class PositionInfo
 									{
 										position[]={14362.837,19.548903,16283.741};
-										angles[]={0,5.5365748,-0};
+										angles[]={0,5.5365748,0};
 									};
 									side="Empty";
 									flags=5;
@@ -35165,31 +35146,803 @@ class Mission
 				nAttributes=1;
 			};
 		};
+		class Item19
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={14192.937,22.531485,16313.295};
+				angles[]={0.0039968039,0,0.0079936078};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this setVariable [""A35LIB_module"",""atc""];" \n "[""A35LIB_atc_atcOfficer"",atcOfficer];" \n "this setVariable" \n "[""A35LIB_atc_pilotSpawnMarkers"",[""pilotSpawnCAS"",""pilotSpawnAA""]];" \n "}";
+				name="atc";
+				disableSimulation=1;
+			};
+			id=773;
+			type="Land_PortableServer_01_sand_F";
+			atlOffset=0.0072917938;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="Enh_HoldAction";
+					expression="			_value params ['_name','_iconIdle','_iconProgress','_conditionShow','_conditionProgress','_codeStart','_codeProgress','_codeCompletion','_codeInterrupt','_duration','_priority','_showUnconscious','_showWindow'];			if (!is3DEN && !(_name isEqualTo '')) then			{				[					_this,					_name,					_iconIdle,					_iconProgress,					_conditionShow,					_conditionProgress,					compile _codeStart,					compile _codeProgress,					compile format ['%1 %2','[_this select 0,_this select 2] remoteExecCall [''removeAction'',0]; remoteExecCall ['''',_this select 0];',_codeCompletion],					compile _codeInterrupt,					nil,					_duration,					_priority,					true,					_showUnconscious,					_showWindow				] remoteExecCall ['BIS_fnc_holdActionAdd',0,_this];			};";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"ARRAY"
+								};
+							};
+							class value
+							{
+								items=14;
+								class Item0
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="";
+									};
+								};
+								class Item1
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="\a3\ui_f\data\igui\cfg\holdactions\holdaction_revive_ca.paa";
+									};
+								};
+								class Item2
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="\a3\ui_f\data\igui\cfg\holdactions\holdaction_revive_ca.paa";
+									};
+								};
+								class Item3
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="true";
+									};
+								};
+								class Item4
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="true";
+									};
+								};
+								class Item5
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="";
+									};
+								};
+								class Item6
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="";
+									};
+								};
+								class Item7
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="";
+									};
+								};
+								class Item8
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="";
+									};
+								};
+								class Item9
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"SCALAR"
+											};
+										};
+										value=10;
+									};
+								};
+								class Item10
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"SCALAR"
+											};
+										};
+										value=1000;
+									};
+								};
+								class Item11
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"BOOL"
+											};
+										};
+										value=0;
+									};
+								};
+								class Item12
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"BOOL"
+											};
+										};
+										value=1;
+									};
+								};
+								class Item13
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="";
+									};
+								};
+							};
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item20
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={14192,22.870241,16313.457};
+				angles[]={0.0039968039,0,0.0079936078};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="call{this setVariable [""A35LIB"",this];}";
+				name="A35lib";
+				disableSimulation=1;
+			};
+			id=774;
+			type="Land_PortableServer_01_black_F";
+			atlOffset=0.34572601;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="Enh_HoldAction";
+					expression="			_value params ['_name','_iconIdle','_iconProgress','_conditionShow','_conditionProgress','_codeStart','_codeProgress','_codeCompletion','_codeInterrupt','_duration','_priority','_showUnconscious','_showWindow'];			if (!is3DEN && !(_name isEqualTo '')) then			{				[					_this,					_name,					_iconIdle,					_iconProgress,					_conditionShow,					_conditionProgress,					compile _codeStart,					compile _codeProgress,					compile format ['%1 %2','[_this select 0,_this select 2] remoteExecCall [''removeAction'',0]; remoteExecCall ['''',_this select 0];',_codeCompletion],					compile _codeInterrupt,					nil,					_duration,					_priority,					true,					_showUnconscious,					_showWindow				] remoteExecCall ['BIS_fnc_holdActionAdd',0,_this];			};";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"ARRAY"
+								};
+							};
+							class value
+							{
+								items=14;
+								class Item0
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="";
+									};
+								};
+								class Item1
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="\a3\ui_f\data\igui\cfg\holdactions\holdaction_revive_ca.paa";
+									};
+								};
+								class Item2
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="\a3\ui_f\data\igui\cfg\holdactions\holdaction_revive_ca.paa";
+									};
+								};
+								class Item3
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="true";
+									};
+								};
+								class Item4
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="true";
+									};
+								};
+								class Item5
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="";
+									};
+								};
+								class Item6
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="";
+									};
+								};
+								class Item7
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="";
+									};
+								};
+								class Item8
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="";
+									};
+								};
+								class Item9
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"SCALAR"
+											};
+										};
+										value=10;
+									};
+								};
+								class Item10
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"SCALAR"
+											};
+										};
+										value=1000;
+									};
+								};
+								class Item11
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"BOOL"
+											};
+										};
+										value=0;
+									};
+								};
+								class Item12
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"BOOL"
+											};
+										};
+										value=1;
+									};
+								};
+								class Item13
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="";
+									};
+								};
+							};
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item21
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={14192.088,22.524918,16313.377};
+				angles[]={0.0039968039,0,0.0079936078};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this setVariable [""A35LIB_DATASTORE"",this];}";
+				name="datastore";
+				disableSimulation=1;
+			};
+			id=776;
+			type="Land_PortableServer_01_olive_F";
+			atlOffset=0.00043106079;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="Enh_HoldAction";
+					expression="			_value params ['_name','_iconIdle','_iconProgress','_conditionShow','_conditionProgress','_codeStart','_codeProgress','_codeCompletion','_codeInterrupt','_duration','_priority','_showUnconscious','_showWindow'];			if (!is3DEN && !(_name isEqualTo '')) then			{				[					_this,					_name,					_iconIdle,					_iconProgress,					_conditionShow,					_conditionProgress,					compile _codeStart,					compile _codeProgress,					compile format ['%1 %2','[_this select 0,_this select 2] remoteExecCall [''removeAction'',0]; remoteExecCall ['''',_this select 0];',_codeCompletion],					compile _codeInterrupt,					nil,					_duration,					_priority,					true,					_showUnconscious,					_showWindow				] remoteExecCall ['BIS_fnc_holdActionAdd',0,_this];			};";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"ARRAY"
+								};
+							};
+							class value
+							{
+								items=14;
+								class Item0
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="";
+									};
+								};
+								class Item1
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="\a3\ui_f\data\igui\cfg\holdactions\holdaction_revive_ca.paa";
+									};
+								};
+								class Item2
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="\a3\ui_f\data\igui\cfg\holdactions\holdaction_revive_ca.paa";
+									};
+								};
+								class Item3
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="true";
+									};
+								};
+								class Item4
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="true";
+									};
+								};
+								class Item5
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="";
+									};
+								};
+								class Item6
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="";
+									};
+								};
+								class Item7
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="";
+									};
+								};
+								class Item8
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="";
+									};
+								};
+								class Item9
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"SCALAR"
+											};
+										};
+										value=10;
+									};
+								};
+								class Item10
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"SCALAR"
+											};
+										};
+										value=1000;
+									};
+								};
+								class Item11
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"BOOL"
+											};
+										};
+										value=0;
+									};
+								};
+								class Item12
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"BOOL"
+											};
+										};
+										value=1;
+									};
+								};
+								class Item13
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"STRING"
+											};
+										};
+										value="";
+									};
+								};
+							};
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
 	};
 	class Connections
 	{
 		class LinkIDProvider
 		{
-			nextID=2;
+			nextID=1;
 		};
 		class Links
 		{
-			items=2;
+			items=1;
 			class Item0
 			{
 				linkID=0;
 				item0=4;
 				item1=2;
-				class CustomData
-				{
-					type="Sync";
-				};
-			};
-			class Item1
-			{
-				linkID=1;
-				item0=9;
-				item1=99;
 				class CustomData
 				{
 					type="Sync";

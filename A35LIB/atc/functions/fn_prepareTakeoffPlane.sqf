@@ -1,5 +1,5 @@
 params ["_runwayId","_callsign","_plane"];
-hint "drin";
+
 _taxi = _plane getVariable "A35LIB_atc_currentTaxi";
 
 sleep CONF_A35LIB_ATC_ENGINE_FLIGHTPREPARATION_DEFAULT_TIME;
@@ -16,5 +16,3 @@ deleteVehicle _taxi;
 
 _plane enableSimulation true;
 _plane allowDamage true;
-
-hint "durch";

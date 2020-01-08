@@ -1,7 +1,7 @@
 params ["_newTaxi", "_callsign"];
 
 // get value
-_registeredTaxis = ["A35LIB_atc_registered_taxis_out", [], A35LIB_ATC_ENTITY] call A35LIB_common_getVariable;
+_registeredTaxis = ["A35LIB_atc_registered_taxis_out", []] call A35LIB_common_getVariableInDatastore;
 
 // modify value
 _newTaxi setVariable ["A35LIB_atc_callsign", _callsign];
@@ -10,4 +10,4 @@ _newTaxi setVariable ["A35LIB_atc_callsign", _callsign];
 _registeredTaxis append [_newTaxi];
 
 // save value
-["A35LIB_atc_registered_taxis_out", _registeredTaxis, A35LIB_ATC_ENTITY] call A35LIB_common_setVariable;
+["A35LIB_atc_registered_taxis_out", _registeredTaxis] call A35LIB_common_setVariableInDatastore;

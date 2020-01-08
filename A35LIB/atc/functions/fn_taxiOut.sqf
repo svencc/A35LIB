@@ -15,12 +15,13 @@ _taxiCallsign = _callsignTupel;
 // ----------------------------------------------------------------------------
 
 // Find all registed taxis
-_registeredTaxis = ["A35LIB_atc_registered_taxis_out", [], A35LIB_ATC_ENTITY] call A35LIB_common_getVariable;
+_registeredTaxis = ["A35LIB_atc_registered_taxis_out", []] call A35LIB_common_getVariableInDatastore;
+
 // Find taxi with given callsign
 _taxis = [_registeredTaxis, {(_x getVariable "A35LIB_atc_callsign") == _taxiCallsign;}] call BIS_fnc_conditionalSelect;
 
 if (count _taxis != 1) exitWith {
-  ["1578256721: taxis found ("+(str count _taxis)+")"] call A35LIB_common_debug;
+  //["1578256721: taxis found ("+(str count _taxis)+")"] call A35LIB_common_debug;
   false;
 };
 
@@ -29,7 +30,7 @@ _taxiTemplate = _taxis select 0;
 
 
 // Find all registed planes
-_registeredPlanes = ["A35LIB_atc_registeredPlanes", [], A35LIB_ATC_ENTITY] call A35LIB_common_getVariable;
+_registeredPlanes = ["A35LIB_atc_registeredPlanes", []] call A35LIB_common_getVariableInDatastore;
 // Find taxi with given callsign
 _planeTemplates = [_registeredPlanes, {(_x getVariable "A35LIB_atc_callsign") == _planeCallsign;}] call BIS_fnc_conditionalSelect;
 
@@ -99,7 +100,7 @@ _taxiInstance disableAI "LIGHTS";
 _taxiInstance disableAI "AUTOTARGET";
 A35LIB_ATC_OFFICER action ["lightOff", _taxiInstance];
 
-// @TODO - REFACTOR -> setter and getter functions!
+// @TODO - REFACTOR -> setter and getter functions planes!
 // Connect every instance inside the plane!
 _planeInstance setVariable ["A35LIB_atc_planeInstanceFrom", _planeTemplate];
 _planeInstance setVariable ["A35LIB_atc_currentTaxi", _taxiInstance];
@@ -159,6 +160,8 @@ getInHandlerScheduled = {
   } forEach (waypoints (group driver _taxiInstance));
 };
 
+//_taxyWaypoints = waypoints group _taxiInstance;
+//hint str _taxyWaypoints;
 
 // <<<<<<<<<<<<<<<
 // @TODO Hier müssen wir das prepareTakeoffPlane script als Activation Handler des vorletzten Waypoints setzen!!!!!!!!!!!!!

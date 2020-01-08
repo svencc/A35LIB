@@ -5,9 +5,7 @@ params ["_runwayId","_callsign","_objectsInTrigger"];
 {
 	if ( (_x isKindOf "Plane") ) then {
 		if ( !isNil {_x getVariable "A35LIB_atc_planeInstanceFrom"} ) then {
-			hint "rein";
 			[_runwayId, _callsign, _x] call A35LIB_atc_prepareTakeoffPlane;
-			hint "durch";
 		};
 	};
 } forEach (_objectsInTrigger);
