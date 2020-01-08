@@ -158,19 +158,33 @@ getInHandlerScheduled = {
 
   { _x setWaypointCompletionRadius 1;
   } forEach (waypoints (group driver _taxiInstance));
+
+
+
+  // Check if taxi reaches its destination
+  [_plane, _taxiInstance, _taxiTemplate] spawn {
+    params ["_plane", "_taxi", "_taxiTemplate"];
+
+    _runwayId = _taxiTemplate getVariable "A35LIB_atc_taxi_destination_id";
+    _destinationCallsign = _taxiTemplate getVariable "A35LIB_atc_taxi_destination_callsign";
+
+    while {
+      _speed = speed _taxi;
+      _distance = (_taxi distance2D (getMarkerPos (_taxiTemplate getVariable "A35LIB_atc_taxi_destination_id")));
+      _comparison = ((_speed == 0) && (_distance < CONF_A35LIB_ATC_TAXI_DEFAULT_DESTINATION_DISTANCE));
+
+      !_comparison
+    } do {
+      sleep CONF_A35LIB_ATC_TAXI_DEFAULT_DESTINATION_CHECK_INTERVAL;
+    };
+
+    [_runwayId, _destinationCallsign, _plane] call A35LIB_atc_prepareTakeoffPlane;
+  };
+
 };
-
-//_taxyWaypoints = waypoints group _taxiInstance;
-//hint str _taxyWaypoints;
-
-// <<<<<<<<<<<<<<<
-// @TODO Hier müssen wir das prepareTakeoffPlane script als Activation Handler des vorletzten Waypoints setzen!!!!!!!!!!!!!
-// <<<<<<<<<<<<<<<
-
 
 
 // Dann brauchen wir noch diverse Routen die das Flugzeug dann einnimmt.
-
 
 // Der ATC muss einen Flugplan haben für Patroullienflüge
 
